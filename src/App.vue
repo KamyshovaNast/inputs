@@ -1,7 +1,8 @@
 <template>
   <v-app>
    <div id="nav">
-      <router-link to="/login">Login</router-link>
+      <router-link to="/login">Вход</router-link> |
+      <router-link to="/register">Регистрация</router-link>
     </div>
     <v-main>
      <v-content class="px-12 py-3">

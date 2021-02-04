@@ -1,9 +1,9 @@
 <template>
     <div class="d-flex justify-center">
-       <h1>Вход</h1>
+       <h1>Регистрация</h1>
         <v-card width="600px" class="mt-12 pa-10">
             <v-card-title>
-                Войдите в аккаунт
+                Регистрация аккаунта
             </v-card-title>
 
             <v-text-field
@@ -19,7 +19,7 @@
             ></v-text-field>
 
             <v-btn @click="authenticate">
-                Войти
+                Зарегистрироваться
             </v-btn>
         </v-card>
     </div>
@@ -41,17 +41,13 @@ export default {
                 .then (
                     (response) => {
                         let users = response.data;
-                        let found = false;
-                        for(let index in users) {
-                            if(this.login == users[index]. login & this.password == users[index].password){
-                                this.$emit('login', index);
-                                this.$router.push('/users/' + this.myId);
-                                found = true;
-                                break;
-                            }
-                        }
-                        if(!found)
-                            window.alert('Неверный логин или пароль')
+                        let user = {
+                            login: this.login,
+                            password: this.password
+                        };
+                        users = users.push(user);
+                        this.axios.put('http://188.225.47.187/api/jsonstorage/d3cec8d60e3625b856a50c0722f2c8ab', users);
+                        this.$router.push('home')
                     }
                 )
         }
