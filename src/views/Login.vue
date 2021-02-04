@@ -42,9 +42,9 @@ export default {
                         let users = response. data;
                         let found = false;
                         for(let index in users) {
-                            if(this. login == users[index]. login & this. password == users[index].password){
+                            if(this.login == users[index]. login & this.password == users[index].password){
                                 this.$emit('login', index);
-                                this. $router.push('/users/' + this. myId);
+                                this.$router.push('/users/' + this.myId);
                                 found = true;
                                 break;
                             }
