@@ -26,4 +26,34 @@
 
 <script>
 // @ is an alias to /src
+export default {
+    data() {
+        return {
+            login: undefined,
+            password: undefined,
+            storage: ''
+        }
+    },
+    methods: {
+        authenticate() {
+            this.axios.get('http://188.225.47.187/api/jsonstorage/d3cec8d60e3625b856a50c0722f2c8ab')
+                .then (
+                    (response) => {
+                        let users = response. data;
+                        let found = false;
+                        for(let index in users) {
+                            if(this. login == users[index]. login & this. password == users[index].password){
+                                this.$emit('login', index);
+                                this. $router.push('/users/' + this. myId);
+                                found = true;
+                                break;
+                            }
+                        }
+                        if(!found)
+                            window.alert('Неверный логин или пароль')
+                    }
+                )
+        }
+    }
+}
 </script>

@@ -4,7 +4,11 @@
       <router-link to="/login">Login</router-link>
     </div>
     <v-main>
-      <router-view/>
+     <v-content class="px-12 py-3">
+        <v-container fluid>
+         <router-view v-on:login="updateUser"/>
+        </v-container>
+     </v-content>
     </v-main>
   </v-app>
 </template>
