@@ -37,13 +37,13 @@ export default {
     },
     methods: {
         authenticate() {
-            this.axios.get('http://188.225.47.187/api/jsonstorage/d3cec8d60e3625b856a50c0722f2c8ab')
+            this.axios.get('http://37.77.104.246/api/jsonstorage/?id=f552f48bfc2a4b25313ec74295dce42d')
                 .then (
                     (response) => {
                         let users = response.data;
                         let found = false;
                         for(let index in users) {
-                            if(this.login == users[index]. login & this.password == users[index].password){
+                            if(this.login == users[index].login & this.password == users[index].password){
                                 this.$emit('login', index);
                                 this.$router.push('/users/' + this.myId);
                                 found = true;

@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         authenticate() {
-            this.axios.get('http://188.225.47.187/api/jsonstorage/d3cec8d60e3625b856a50c0722f2c8ab')
+            this.axios.get('http://37.77.104.246/api/jsonstorage/?id=f552f48bfc2a4b25313ec74295dce42d')
                 .then (
                     (response) => {
                         let users = response.data;
@@ -45,8 +45,8 @@ export default {
                             login: this.login,
                             password: this.password
                         };
-                        users = users.push(user);
-                        this.axios.put('http://188.225.47.187/api/jsonstorage/d3cec8d60e3625b856a50c0722f2c8ab', users);
+                        users.push(user);
+                        this.axios.put('http://37.77.104.246/api/jsonstorage/?id=f552f48bfc2a4b25313ec74295dce42d', users);
                         this.$router.push('home')
                     }
                 )
