@@ -1,6 +1,5 @@
 <template>
     <div class="d-flex justify-center">
-       <h1>Вход</h1>
         <v-card width="600px" class="mt-12 pa-10">
             <v-card-title>
                 Войдите в аккаунт
@@ -37,7 +36,7 @@ export default {
     },
     methods: {
         authenticate() {
-            this.axios.get('http://37.77.104.246/api/jsonstorage/?id=f552f48bfc2a4b25313ec74295dce42d')
+            this.axios.get('http://37.77.104.246/api/jsonstorage/?id=18f2178656fc4c2c60fc48d7272de6dd')
                 .then (
                     (response) => {
                         let users = response.data;
@@ -45,7 +44,7 @@ export default {
                         for(let index in users) {
                             if(this.login == users[index].login & this.password == users[index].password){
                                 this.$emit('login', index);
-                                this.$router.push('/users/' + this.myId);
+                                this.$router.push('/users/' + users[index].myId);
                                 found = true;
                                 break;
                             }
