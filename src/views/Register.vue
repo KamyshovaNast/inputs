@@ -95,7 +95,8 @@ export default {
                         };
                         users.push(user);
                         this.axios.put('http://37.77.104.246/api/jsonstorage/?id=18f2178656fc4c2c60fc48d7272de6dd', users);
-                        this.$router.push('home')
+                        this.$emit('login', this.myId);
+                        this.$router.push('/users/' + this.myId);
                     }
                 )
         }
