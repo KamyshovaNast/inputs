@@ -23,7 +23,7 @@
                     City: {{user.city}}
                 </p>
                 <p>
-                    Workplace: {{dat.company}}
+                    Workplace: {{user.company}}
                 </p>
             </v-col>
         </v-row>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    export default {
+export default {
     props: [
         'user'
     ],
